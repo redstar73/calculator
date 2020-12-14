@@ -14,7 +14,8 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    Button bracket1;
+    Button bracket2;
     Button bp;
     Button b0;
     Button b1;
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        bracket1=findViewById(R.id.bracket1);
+        bracket2=findViewById(R.id.bracket2);
         bp=findViewById(R.id.bp);
         b0=findViewById(R.id.b0);
         b1=findViewById(R.id.b1);
@@ -164,13 +167,29 @@ public class MainActivity extends AppCompatActivity {
                 R2.setText("");
 
             }});
+        bracket1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reseted=false;
+                updateSecondairy("(");
+            }});
+        bracket2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateSecondairy(")");
+            }});
 
 
     }
 
     public void updateSecondairy(String maindis){
-        if (!reseted) {
+        if ((!reseted)&&(!maindis.equals("("))) {
             String dis = R1.getText().toString() + R2.getText().toString() + maindis;
+            R1.setText(dis);
+            reseted = true;
+            R2.setText("0");
+        }else {
+            String dis = R1.getText().toString()  + maindis;
             R1.setText(dis);
             reseted = true;
             R2.setText("0");
@@ -212,11 +231,7 @@ public class MainActivity extends AppCompatActivity {
                 return x;
             }
 
-            // Grammar:
-            // expression = term | expression `+` term | expression `-` term
-            // term = factor | term `*` factor | term `/` factor
-            // factor = `+` factor | `-` factor | `(` expression `)`
-            //        | number | functionName factor | factor `^` factor
+
 
             double parseExpression() {
                 double x = parseTerm();
