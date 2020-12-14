@@ -14,6 +14,7 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button power;
     Button bracket1;
     Button bracket2;
     Button bp;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        power=findViewById(R.id.power);
         bracket1=findViewById(R.id.bracket1);
         bracket2=findViewById(R.id.bracket2);
         bp=findViewById(R.id.bp);
@@ -164,8 +166,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 R1.setText("");
-                R2.setText("");
-
+                R2.setText("0");
+                reseted=true;
             }});
         bracket1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,21 +180,29 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 updateSecondairy(")");
             }});
+        power.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateSecondairy("^");
+            }});
 
 
     }
 
     public void updateSecondairy(String maindis){
-        if ((!reseted)&&(!maindis.equals("("))) {
-            String dis = R1.getText().toString() + R2.getText().toString() + maindis;
-            R1.setText(dis);
-            reseted = true;
-            R2.setText("0");
-        }else {
-            String dis = R1.getText().toString()  + maindis;
-            R1.setText(dis);
-            reseted = true;
-            R2.setText("0");
+        if ((!reseted)) {
+            if (maindis.equals("(")){
+                String dis = R1.getText().toString()  + maindis;
+                R1.setText(dis);
+                reseted = true;
+                R2.setText("0");
+
+            }else {
+                String dis = R1.getText().toString() + R2.getText().toString() + maindis;
+                R1.setText(dis);
+                reseted = true;
+                R2.setText("0");
+            }
         }
     }
 
