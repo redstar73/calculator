@@ -14,6 +14,10 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button sin;
+    Button cos;
+    Button tan;
+    Button delt;
     Button power;
     Button bracket1;
     Button bracket2;
@@ -44,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sin=findViewById(R.id.sin);
+        cos=findViewById(R.id.cos);
+        tan=findViewById(R.id.tan);
+        delt=findViewById(R.id.delt);
         power=findViewById(R.id.power);
         bracket1=findViewById(R.id.bracket1);
         bracket2=findViewById(R.id.bracket2);
@@ -165,9 +173,9 @@ public class MainActivity extends AppCompatActivity {
         breset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                R1.setText("");
-                R2.setText("0");
-                reseted=true;
+                String s = (String) R2.getText();
+                s= s.substring(0,s.length()-1);
+                R2.setText(s);
             }});
         bracket1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,6 +192,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateSecondairy("^");
+            }});
+        cos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateSecondairy("cos");
+            }});
+        sin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateSecondairy("sin");
+            }});
+        tan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateSecondairy("tan");
+            }});
+        delt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                R1.setText("");
+                R2.setText("0");
+                reseted=true;
             }});
 
 

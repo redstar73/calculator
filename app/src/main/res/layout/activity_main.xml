@@ -8,18 +8,30 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/delt"
+        android:layout_width="72dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="13dp"
+        android:text="CE"
+        app:backgroundTint="#960000"
+        app:layout_constraintBottom_toTopOf="@+id/breset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/R2" />
+
+    <Button
         android:id="@+id/power"
         android:layout_width="72dp"
         android:layout_height="41dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="14dp"
         android:text="x^"
         app:backgroundTint="#009688"
         app:layout_constraintBottom_toTopOf="@+id/b7"
-        app:layout_constraintEnd_toStartOf="@+id/bracket1"
-        app:layout_constraintTop_toBottomOf="@+id/R2" />
+        app:layout_constraintEnd_toStartOf="@+id/bracket1" />
 
     <Button
         android:id="@+id/bm"
@@ -209,16 +221,13 @@
         android:id="@+id/bracket1"
         android:layout_width="72dp"
         android:layout_height="41dp"
-        android:layout_marginTop="35dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="14dp"
         android:text="("
         app:backgroundTint="#009688"
         app:layout_constraintBottom_toTopOf="@+id/b7"
-        app:layout_constraintEnd_toStartOf="@+id/b9"
-        app:layout_constraintTop_toBottomOf="@+id/R2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toStartOf="@+id/b9" />
 
     <Button
         android:id="@+id/bracket2"
@@ -226,14 +235,53 @@
         android:layout_height="41dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="35dp"
         android:layout_marginBottom="14dp"
         android:text=")"
         app:backgroundTint="#009688"
         app:layout_constraintBottom_toTopOf="@+id/b8"
-        app:layout_constraintStart_toEndOf="@+id/bracket1"
-        app:layout_constraintTop_toBottomOf="@+id/R2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toEndOf="@+id/bracket1" />
+
+    <Button
+        android:id="@+id/sin"
+        android:layout_width="72dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="13dp"
+        android:text="sin"
+        app:backgroundTint="#009688"
+        app:layout_constraintBottom_toTopOf="@+id/power"
+        app:layout_constraintEnd_toStartOf="@+id/cos"
+        app:layout_constraintTop_toBottomOf="@+id/R2" />
+
+    <Button
+        android:id="@+id/cos"
+        android:layout_width="72dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="13dp"
+        android:text="cos"
+        app:backgroundTint="#009688"
+        app:layout_constraintBottom_toTopOf="@+id/bracket1"
+        app:layout_constraintEnd_toStartOf="@+id/tan"
+        app:layout_constraintTop_toBottomOf="@+id/R2" />
+
+    <Button
+        android:id="@+id/tan"
+        android:layout_width="72dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="13dp"
+        android:text="tan"
+        app:backgroundTint="#009688"
+        app:layout_constraintBottom_toTopOf="@+id/bracket2"
+        app:layout_constraintEnd_toStartOf="@+id/delt"
+        app:layout_constraintTop_toBottomOf="@+id/R2" />
 
     <Button
         android:id="@+id/b7"
@@ -305,6 +353,7 @@
         android:layout_marginRight="39dp"
         android:background="#FFFFFF"
         android:textSize="24sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -314,12 +363,12 @@
         android:layout_height="41dp"
         android:layout_marginStart="23dp"
         android:layout_marginLeft="23dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
+        android:layout_marginBottom="14dp"
         android:text="C"
         app:backgroundTint="#FF0000"
+        app:layout_constraintBottom_toTopOf="@+id/bm"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bracket2"
-        app:layout_constraintTop_toBottomOf="@+id/R2" />
+        app:layout_constraintStart_toEndOf="@+id/bracket2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
